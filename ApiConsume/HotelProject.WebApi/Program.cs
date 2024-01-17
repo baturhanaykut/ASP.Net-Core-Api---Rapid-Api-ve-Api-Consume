@@ -30,6 +30,8 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
+builder.Services.AddAutoMapper(typeof(Program));
+
 //Api projesini consume etmek için kullanýlýr.
 builder.Services.AddCors(opt =>
 {
