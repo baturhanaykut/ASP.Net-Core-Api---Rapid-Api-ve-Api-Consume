@@ -9,8 +9,8 @@ namespace HotelProject.EntityLayer.Concrete
 {
     public class Room
     {
-        [Key]
-        public int RooId { get; set; }
+        
+        public int RoomId { get; set; }
         public string? RoomNumber { get; set; }
         public string? RoomCoverImage { get; set; }
         public int Price { get; set; }

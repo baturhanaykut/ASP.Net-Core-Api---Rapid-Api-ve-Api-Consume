@@ -22,6 +22,37 @@ namespace HotelProject.DataAccessLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.About", b =>
+                {
+                    b.Property<int>("AboutId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutId"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CustomerCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoomCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StaffCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AboutId");
+
+                    b.ToTable("Abouts");
+                });
+
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.AppRole", b =>
                 {
                     b.Property<int>("Id")
@@ -129,13 +160,56 @@ namespace HotelProject.DataAccessLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Room", b =>
+            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Booking", b =>
                 {
-                    b.Property<int>("RooId")
+                    b.Property<int>("BookingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RooId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"), 1L, 1);
+
+                    b.Property<string>("AdultCount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CheckIn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CheckOut")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ChildCount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoomCount")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SpecialRequest")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BookingId");
+
+                    b.ToTable("Bookings");
+                });
+
+            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Room", b =>
+                {
+                    b.Property<int>("RoomId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"), 1L, 1);
 
                     b.Property<string>("BathCount")
                         .HasColumnType("nvarchar(max)");
@@ -161,7 +235,7 @@ namespace HotelProject.DataAccessLayer.Migrations
                     b.Property<string>("Wifi")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RooId");
+                    b.HasKey("RoomId");
 
                     b.ToTable("Rooms");
                 });
