@@ -20,7 +20,7 @@ Proje İçeriği İçeriği
  
  -Register
  
- -AspNet Core 5.0
+ -AspNet Core 6.0
  
  -Fluent Validation
  
