@@ -1,0 +1,73 @@
+﻿@model UpdateRoomDto
+@{
+    ViewData["Title"] = "UpdateRoom";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post" asp-action="UpdateRoom">
+            <input asp-for="RoomId" type="hidden" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label">Oda Numarası</label>
+                <input asp-for="RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Oda Fiyatı</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Başlık</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BedCount" class="control-label">Yatak Oda Sayısı</label>
+                <input asp-for="BedCount" type="number" min="0" max="10" class="form-control" />
+                <span asp-validation-for="BedCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BathCount" class="control-label">Banyo Sayısı</label>
+                <input asp-for="BathCount" type="number" min="0" max="10" class="form-control" />
+                <span asp-validation-for="BathCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BathCount" class="control-label">Banyo Sayısı</label>
+                <input asp-for="BathCount" type="number" min="0" max="10" class="form-control" />
+                <span asp-validation-for="BathCount" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="RoomCoverImage" class="control-label">Oda Kapak Fotografı</label>
+                <input asp-for="RoomCoverImage" class="form-control" />
+                <span asp-validation-for="RoomCoverImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Oda Açıklması</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for=Wifi for="select1">Wifi</label>
+                <select class="form-select" id="select1" asp-for="Wifi">
+                    <option value="Var">Var </option>
+                    <option value="Yok">Yok </option>
+
+                </select>
+                <span asp-validation-for="Wifi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Oda Güncelle" class="btn mb-1 btn-rounded btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn mb-1 btn-rounded btn-outline-success">Geri Dön</a>
+</div>
+

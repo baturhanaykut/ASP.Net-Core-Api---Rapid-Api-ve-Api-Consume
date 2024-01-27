@@ -1,0 +1,40 @@
+﻿@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="card-body">
+    <div class="card-title">
+        <h4>Çalışan Listesi</h4>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Başlık 1</th>
+                    <th>Başlık 2</th>
+                    <th>Güncelle</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.Title1</td>
+                        <td>@item.Title2</td>
+                        <td><a href="/AdminAbout/UpdateAbout/@item.AboutId" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

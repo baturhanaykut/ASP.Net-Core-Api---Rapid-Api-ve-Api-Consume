@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@* Contact Index Sayfası *@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,18 +15,14 @@
         <!-- Header Start -->
         @await Component.InvokeAsync("_NavbarPartial")
         <!-- Header End -->
-        <!-- Booking Cover Partial Start -->
-        @await Component.InvokeAsync("_BookingCoverPartial")
-        <!-- Booking Cover Partial End -->
-       
-       @*  @await Component.InvokeAsync("_ReservationPartial") *@
-        
-        <!-- Booking Start -->
-        @await Html.PartialAsync("_AddBooking")
-        <!-- Booking End -->
-        <!-- Newsletter Start -->
+        <!-- Contact Cover Partial Start -->
+        @await Component.InvokeAsync("_ContactCoverPartial")
+        <!-- Contact Cover Partial End -->
+             
+      
+        @await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
+
         @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml")
-        <!-- Newsletter Start -->
         <!-- Footer Start -->
         @await Component.InvokeAsync("_FooterPartial")
         <!-- Footer End -->

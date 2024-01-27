@@ -30,17 +30,17 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> ApprovedReservation(int id)
         {
            
-            var client = _httpClientFactory.CreateClient();
+            //var client = _httpClientFactory.CreateClient();
             //var jsonData = JsonConvert.SerializeObject(approvedReservationDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            //StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PutAsync("http://localhost:5155/api/Booking/aaa", stringContent);
+            //var responseMessage = await client.PutAsync("http://localhost:5155/api/Booking/aaa", stringContent);
 
-            if (responseMessage.IsSuccessStatusCode)
-            {
+            //if (responseMessage.IsSuccessStatusCode)
+            //{
 
-                return RedirectToAction("Index");
-            }
+            //    return RedirectToAction("Index");
+            //}
             return View();
         }
     }

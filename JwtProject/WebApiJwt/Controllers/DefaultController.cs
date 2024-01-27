@@ -32,7 +32,7 @@ namespace WebApiJwt.Controllers
         public IActionResult Test3()
         {
             return Ok("Token başarılı bir şekilde giriş yaptı.");
-        }
+        } 
     }
 }
 

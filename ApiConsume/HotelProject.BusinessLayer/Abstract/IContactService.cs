@@ -2,7 +2,7 @@
 
 namespace HotelProject.BusinessLayer.Abstract
 {
-    public interface IRoomService : IGenericService<Room>
+    public interface IContactService:IGenericService<Contact>
     {
     }
 }
