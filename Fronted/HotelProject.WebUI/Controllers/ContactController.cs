@@ -1,6 +1,8 @@
 ﻿using HotelProject.WebUI.Dtos.ContactDto;
+using HotelProject.WebUI.Dtos.MessageCategoryDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -15,8 +17,21 @@ namespace HotelProject.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:5155/api/MessageCategory");
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
+
+            List<SelectListItem> messageCategory = (from item in values
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = item.MessageCategoryName,
+                                                        Value = item.MessageCategoryId.ToString(),
+
+                                                    }).ToList();
+            ViewBag.MessageCategory = messageCategory;
             return View();
         }
 
@@ -43,9 +58,9 @@ namespace HotelProject.WebUI.Controllers
 
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index","Default");
+                return RedirectToAction("Index", "Default");
             }
-            return RedirectToAction("Index","Contact");
+            return RedirectToAction("Index", "Contact");
         }
     }
 }
