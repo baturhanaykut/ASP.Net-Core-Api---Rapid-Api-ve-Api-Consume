@@ -1,8 +1,9 @@
 ﻿namespace HotelProject.WebUI.Dtos.BookingDto
 {
-    public class CreateBookingDto
+    public class ResultLast5BookingDto
     {
-   
+        public int BookingId { get; set; }
+
         public string? Name { get; set; }
 
         public string? Mail { get; set; }

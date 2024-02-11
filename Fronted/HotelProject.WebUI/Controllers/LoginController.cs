@@ -30,7 +30,7 @@ namespace HotelProject.WebUI.Controllers
                 var result = await _signInManager.PasswordSignInAsync(loginUserDto.UserName, loginUserDto.Password,false,false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Staff");
+                    return RedirectToAction("Index", "Dashboard");
                 }
             }
             return View();
