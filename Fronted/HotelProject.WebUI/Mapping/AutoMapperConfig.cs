@@ -15,6 +15,7 @@ using HotelProject.WebUI.Dtos.StaffDto;
 using HotelProject.WebUI.Dtos.Subscribe;
 using HotelProject.WebUI.Dtos.TestimonialDto;
 using HotelProject.WebUI.Dtos.WorkLocationDto;
+using HotelProject.WebUI.Models.Role;
 
 namespace HotelProject.WebUI.Mapping
 {
@@ -60,6 +61,7 @@ namespace HotelProject.WebUI.Mapping
             CreateMap<ResultBookingDto, Booking>().ReverseMap();
             CreateMap<ApprovedReservationDto, Booking>().ReverseMap();
             CreateMap<ResultLast5BookingDto, Booking>().ReverseMap();
+            CreateMap<UpdateBookingDto, Booking>().ReverseMap();
 
             //Contact
             CreateMap<CreateContactDto, Contact>().ReverseMap();
@@ -82,6 +84,9 @@ namespace HotelProject.WebUI.Mapping
             CreateMap<CreateWorkLocationDto, WorkLocation>().ReverseMap();
             CreateMap<UpdateWorkLocationDto, WorkLocation>().ReverseMap();
             CreateMap<ResultAppUserWithWorkLocationDto, WorkLocation>().ReverseMap();
+
+            //AppRole
+            CreateMap<RoleAssignViewModel, AppRole>().ReverseMap();
 
 
         }

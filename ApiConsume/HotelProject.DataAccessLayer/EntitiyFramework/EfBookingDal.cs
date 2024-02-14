@@ -16,22 +16,28 @@ namespace HotelProject.DataAccessLayer.EntitiyFramework
         {
         }
 
-        public void BookingStatusChangeApproved(Booking booking)
+        public void BookingStatusChangeApproved(int id)
         {
             var context = new Context();
-
-            var values = context.Bookings.Where(x => x.BookingId == booking.BookingId).FirstOrDefault();
+            var values = context.Bookings.Find(id);
             values.Status = "Onaylandı";
             context.SaveChanges();
 
         }
 
-        public void BookingStatusChangeApproved2(int id)
+        public void BookingStatusChangeCancel(int id)
         {
             var context = new Context();
-
             var values = context.Bookings.Find(id);
-            values.Status = "Onaylandı";
+            values.Status = "İptal Edildi";
+            context.SaveChanges();
+        }
+
+        public void BookingStatusChangeWait(int id)
+        {
+            var context = new Context();
+            var values = context.Bookings.Find(id);
+            values.Status = "Müşteri Aranacak";
             context.SaveChanges();
         }
 
@@ -45,7 +51,7 @@ namespace HotelProject.DataAccessLayer.EntitiyFramework
         public List<Booking> Last5Bookings()
         {
             using var context = new Context();
-            var values = context.Bookings.OrderByDescending(x =>x.BookingId).Take(5).ToList();
+            var values = context.Bookings.OrderByDescending(x => x.BookingId).Take(5).ToList();
             return values;
         }
     }

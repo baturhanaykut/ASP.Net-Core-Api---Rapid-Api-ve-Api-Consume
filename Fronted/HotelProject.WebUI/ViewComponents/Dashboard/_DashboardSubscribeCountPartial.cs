@@ -22,11 +22,20 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
 
             using (var response = await client.SendAsync(request))
             {
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();
-                ResultInstagramFollowersDto resultInstagramFollowersDtos = JsonConvert.DeserializeObject<ResultInstagramFollowersDto>(body);
-                ViewBag.Followers = resultInstagramFollowersDtos.followers;
-                ViewBag.Following = resultInstagramFollowersDtos.following;
+                //response.EnsureSuccessStatusCode();
+                //if (response.IsSuccessStatusCode)
+                //{
+                //    var body = await response.Content.ReadAsStringAsync();
+                //    ResultInstagramFollowersDto resultInstagramFollowersDtos = JsonConvert.DeserializeObject<ResultInstagramFollowersDto>(body);
+                //    ViewBag.Followers = resultInstagramFollowersDtos.followers;
+                //    ViewBag.Following = resultInstagramFollowersDtos.following;
+                //}
+                //else
+                //{
+                    ViewBag.Followers = 100;
+                    ViewBag.Following = 100;
+                //}
+               
 
             }
 
@@ -43,11 +52,19 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             };
             using (var response2 = await client2.SendAsync(request2))
             {
-                response2.EnsureSuccessStatusCode();
-                var body2 = await response2.Content.ReadAsStringAsync();
-                ResultTiwitterFollowersDto.Rootobject resultTivitterFollowersDtos = JsonConvert.DeserializeObject<ResultTiwitterFollowersDto.Rootobject>(body2);
-                ViewBag.TwitterFollovers = resultTivitterFollowersDtos.data.user_info.followers_count;
-                ViewBag.TwitterFollowing = resultTivitterFollowersDtos.data.user_info.friends_count;
+                //response2.EnsureSuccessStatusCode();
+                //if (response2.IsSuccessStatusCode.Equals(200))
+                //{
+                //    var body2 = await response2.Content.ReadAsStringAsync();
+                //    ResultTiwitterFollowersDto.Rootobject resultTivitterFollowersDtos = JsonConvert.DeserializeObject<ResultTiwitterFollowersDto.Rootobject>(body2);
+                //    ViewBag.TwitterFollovers = resultTivitterFollowersDtos.data.user_info.followers_count;
+                //    ViewBag.TwitterFollowing = resultTivitterFollowersDtos.data.user_info.friends_count;
+                //}
+               
+                    ViewBag.TwitterFollovers = 215;
+                    ViewBag.TwitterFollowing = 2504;
+                
+                
             }
 
             var client3 = new HttpClient();
@@ -63,11 +80,13 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
             };
             using (var response3 = await client3.SendAsync(request3))
             {
-                response3.EnsureSuccessStatusCode();
-                var body3 = await response3.Content.ReadAsStringAsync();
-                ResultLinkedinFollowersDto.Rootobject resultLinkedinFollowersDto = JsonConvert.DeserializeObject<ResultLinkedinFollowersDto.Rootobject>(body3);
-                ViewBag.LinkedinFollovers = resultLinkedinFollowersDto.follower;
-                ViewBag.LinkedinFollowing = resultLinkedinFollowersDto.connection;
+                //response3.EnsureSuccessStatusCode();
+                //var body3 = await response3.Content.ReadAsStringAsync();
+                //ResultLinkedinFollowersDto.Rootobject resultLinkedinFollowersDto = JsonConvert.DeserializeObject<ResultLinkedinFollowersDto.Rootobject>(body3);
+                //ViewBag.LinkedinFollovers = resultLinkedinFollowersDto.follower;
+                //ViewBag.LinkedinFollowing = resultLinkedinFollowersDto.connection;
+                ViewBag.LinkedinFollovers = 464;
+                ViewBag.LinkedinFollowing = 464;
             }
 
             return View();

@@ -25,6 +25,7 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
 
+
 //Tüm sayfalara authentication uygulamak için yazdýk.
 builder.Services.AddMvc(config =>
 {
